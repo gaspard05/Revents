@@ -1,7 +1,11 @@
-export default function NavBar() {
+type Props = {
+  setFormOpen: (isOpen: boolean) => void;
+};
+
+export default function NavBar({ setFormOpen }: Props) {
   return (
     <header className="p-3 w-full fixed top-0 z-50 bg-linear-to-r from-primary to-black">
-      <div className="flex align-middle items-center px-10 mx-auto gap-6">
+      <div className="flex align-middle items-center px-10 mx-auto gap-6 cursor-pointer">
         <a className="max-h-16 text-white flex items-center gap-3 border-r-white border-r-2 pr-6">
           <h3 className="text-2xl ont-semibold text-white uppercase ">
             Re-vents
@@ -9,7 +13,7 @@ export default function NavBar() {
         </a>
         <nav className="flex gap-3 my-2 uppercase text-lg text-white">
           <a>Events</a>
-          <a>Create</a>
+          <a onClick={() => setFormOpen(true)}>Create</a>
         </nav>
         <div className="flex align-middle ml-auto gap-3">
           <button className="btn">Login</button>
